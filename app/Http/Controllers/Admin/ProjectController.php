@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-//use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\StoreProjectRequest;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use Illuminate\Support\Str;
@@ -28,7 +28,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -39,7 +39,12 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+        $project = new Project ();
+        $project->fill($form_data);
+        $project->slug = Str::slug ($project->title, '-');
+        $project->save();
+        return redirect()->route('admin.projects.show', ['project' => $project->slug]);
     }
 
     /**
