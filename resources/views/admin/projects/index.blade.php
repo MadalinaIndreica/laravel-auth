@@ -5,7 +5,7 @@
         <h2>Lista dei progetti</h2>
 
         <div class="text-end">
-          <a class="btn btn-success" href="{{ route('admin.projects.create') }}">Crea un nuovo progetto</a>
+          <a class="btn btn-info" href="{{ route('admin.projects.create') }}">Crea un nuovo progetto</a>
         </div>
 
         <table class="table table-striped mt-5">
@@ -24,7 +24,8 @@
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->created_at }}</td>
                         <td>
-                          <a class="btn btn-success" href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">Dettagli</a>
+                          <a class="btn btn-primary" href="{{ route('admin.projects.show', ['project' => $project->slug]) }}">Dettagli</a>
+                          <a class="btn btn-warning" href="{{ route('admin.projects.edit', ['project' => $project->slug]) }}">Modifica</a>
                         </td>
                     </tr>
                 @endforeach
