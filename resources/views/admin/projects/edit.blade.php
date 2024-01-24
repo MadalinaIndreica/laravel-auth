@@ -2,8 +2,11 @@
 
 @section('content')
     <div class="container mt-5">
+        <div>
+            <a href="{{ url()->previous() }}">&leftarrow; Ritorna indietro</a>
+        </div>
 
-        <h2>Modifica progetto</h2>
+        <h2 class="my-5 ">Modifica progetto</h2>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -22,16 +25,16 @@
             @method('PUT')
             
             <div class="mb-3 has-validation">
-                <label for="title" class="form-label">Titolo</label>
+                <label for="title" class="form-label"><strong>Titolo</strong></label>
                 <input type="text" class="form-control " id="title" name="title" value="{{ old('title',$project->title) }}">
             </div>
 
             <div class="mb-3">
-                <label for="description" class="form-label">descrizione</label>
+                <label for="description" class="form-label"><strong>descrizione</strong></label>
                 <textarea class="form-control" id="description" rows="3" name="description">{{ old('content', $project->description) }}</textarea>
             </div>   
 
-            <button class="btn btn-warning" type="submit">Salva le modifiche</button>
+            <button class="btn btn-primary" type="submit">Salva le modifiche</button>
            
         </form>
     </div>

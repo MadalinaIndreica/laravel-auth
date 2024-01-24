@@ -14,7 +14,7 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
+                        <h2>Ciao {{ Auth::user()->name }}! Benvenuto/a nel tuo portfolio</h2>
                     </div>
                 </div>
             </div>
